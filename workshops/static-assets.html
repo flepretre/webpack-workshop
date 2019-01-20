@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Handling static assets | Webpack Workshop</title>
+    <meta name="description" content="Webpack discovering and mastering workshops">
+    
+    
+    <link rel="preload" href="/webpack-workshop/assets/css/0.styles.98e9d09f.css" as="style"><link rel="preload" href="/webpack-workshop/assets/js/app.58b0ddb0.js" as="script"><link rel="preload" href="/webpack-workshop/assets/js/3.05190f84.js" as="script"><link rel="prefetch" href="/webpack-workshop/assets/js/2.67cf5634.js"><link rel="prefetch" href="/webpack-workshop/assets/js/4.19b22f25.js"><link rel="prefetch" href="/webpack-workshop/assets/js/5.1e0ada2b.js"><link rel="prefetch" href="/webpack-workshop/assets/js/6.1ebf4d01.js"><link rel="prefetch" href="/webpack-workshop/assets/js/7.df7ce8ba.js">
+    <link rel="stylesheet" href="/webpack-workshop/assets/css/0.styles.98e9d09f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/webpack-workshop/" class="home-link router-link-active"><!----> <span class="site-name">Webpack Workshop</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/webpack-workshop/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webpack-workshop/workshops/" class="nav-link router-link-active">Workshops</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/webpack-workshop/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webpack-workshop/workshops/" class="nav-link router-link-active">Workshops</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/webpack-workshop/" class="sidebar-link">Home</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Novice</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/webpack-workshop/workshops/basics.html" class="sidebar-link">Basics</a></li><li><a href="/webpack-workshop/workshops/static-assets.html" class="active sidebar-link">Handling static assets</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/static-assets.html#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/static-assets.html#import-all-the-things" class="sidebar-link">Import all the things !</a></li><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/static-assets.html#setup-file-loader" class="sidebar-link">Setup file loader</a></li><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/static-assets.html#let-s-use-our-loaded-image" class="sidebar-link">Let's use our loaded image</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="handling-static-assets"><a href="#handling-static-assets" aria-hidden="true" class="header-anchor">#</a> Handling static assets</h1> <blockquote><p>To start this exercise, be sure to be in <code>./packages/novice/static-assets</code> folder.
+Be sure you have <a href="/webpack-workshop/workshops/#install">installed this repository first</a></p></blockquote> <h2 id="introduction"><a href="#introduction" aria-hidden="true" class="header-anchor">#</a> Introduction</h2> <p>Now that we know how to use <em>CommonJS</em> modules power in the browser thanks to webpack resolution process,
+we clearly want to be able to use other files types that a webapp needs.</p> <p>Let's start simply with a static file like an image</p> <img src="/webpack-workshop/assets/img/elias-arnar-1309173-unsplash.9f515127.jpg" width="300px" height="auto" alt="example of asset"> <p>We will start with the same app that is the <a href="/webpack-workshop/workshops/basics.html">basic example</a>.
+But this time we will try to add a picture after the title.</p> <div class="language- extra-class"><pre class="language-text"><code>title.js
+      &lt;- color.js
+             &lt;- node_modules/lodash
+      &lt;- landscape.jpg
+</code></pre></div><h2 id="import-all-the-things"><a href="#import-all-the-things" aria-hidden="true" class="header-anchor">#</a> Import all the things !</h2> <p>Let's try to load our image like it was a JS module and try to run the <code>yarn build</code> command.</p> <details><summary>Solution</summary> <div class="language-js extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getRandomColor <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./color.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> image <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../assets/landscape.jpg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> changeCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;h1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  changeCount<span class="token operator">++</span><span class="token punctuation">;</span>
+  el<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token string">`This title will change ! </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>changeCount<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+  el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token function">getRandomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></details> <p>You will normally see a pretty short error message in your console</p> <div class="language-log extra-class"><pre class="language-text"><code>ERROR in ./assets/landscape.jpg 1:0
+Module parse failed: Unexpected character '�' (1:0)
+You may need an appropriate loader to handle this file type.
+(Source code omitted for this binary file)
+ @ ./src/title.js 2:14-48
+</code></pre></div><p>It simply means that webpack failed to load your image file.
+By default, Webpack could only handle JS module files.
+If you want to load another file type, you definitely need a Webpack <strong>Loader</strong>.</p> <p>If you look at the <code>package.json</code> file, you will fine a new dependency: <code>file-loader</code>.
+This loader have been created for those king of need.</p> <h2 id="setup-file-loader"><a href="#setup-file-loader" aria-hidden="true" class="header-anchor">#</a> Setup file loader</h2> <p>In <a href="/webpack-workshop/workshops/basics.html">basic</a> example we saw two webpack configuration objects:</p> <ul><li>entry</li> <li>output</li></ul> <p>Now we need the <code>module</code> to configure other kind of modules resolving/compiling rules.
+Let's try to add a rule for <code>.jpg</code> files.</p> <details><summary>Solution</summary> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br></div><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> <span class="token string">&quot;./src/title.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// The source module of our dependency graph</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Configuration of what we tell webpack to generate (here, a ./dist/main.js file)</span>
+    filename<span class="token punctuation">:</span> <span class="token string">&quot;main.js&quot;</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Here we can define/override module loading rules</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jpg$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;file-loader&quot;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></details> <p>You can also check that if you add another <code>.jpg</code> image in the folder and don't use it in your module, webpack won't load it.</p> <h2 id="let-s-use-our-loaded-image"><a href="#let-s-use-our-loaded-image" aria-hidden="true" class="header-anchor">#</a> Let's use our loaded image</h2> <p>Webpack seems to have now the power to load a <code>.jpg</code> file. Let's look at what it puts in the <code>const image</code> we created above.</p> <p>Normally you will see a <code>&lt;strange-generated-hash&gt;.jpg</code> in your console. This message matches the file webpack created in the <code>dist</code> folder.</p> <p>If you use this simple trick, you can try to use your generated image in your app</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> getRandomColor <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;./color.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> image <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../assets/landscape.jpg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> changeCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&quot;h1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> img <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&quot;img&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+img<span class="token punctuation">.</span>src <span class="token operator">=</span> image<span class="token punctuation">;</span>
+
+el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>img<span class="token punctuation">,</span> el<span class="token punctuation">.</span>nextSibling<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  changeCount<span class="token operator">++</span><span class="token punctuation">;</span>
+  el<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token string">`This title will change ! </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>changeCount<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+  el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token function">getRandomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Rebuild and open your app, you will normally see that your image is broken.
+Your browser in not looking in the good directory.</p> <h3 id="change-the-path"><a href="#change-the-path" aria-hidden="true" class="header-anchor">#</a> Change the path</h3> <p>We told webpack that the output path is the <code>dist</code> folder. That's exactly where it creates the loaded image.</p> <p>Let's try to configure two things:</p> <ul><li>make webpack create an <code>assets</code> folder for those kind of files (<em>outputPath</em>)</li> <li>make the generated path from loaded module ok for the browser (<em>publicPath</em>)</li></ul> <details><summary>Solution</summary> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> <span class="token string">&quot;./src/title.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// The source module of our dependency graph</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Configuration of what we tell webpack to generate (here, a ./dist/main.js file)</span>
+    filename<span class="token punctuation">:</span> <span class="token string">&quot;main.js&quot;</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jpg$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;file-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              outputPath<span class="token punctuation">:</span> <span class="token string">&quot;assets&quot;</span><span class="token punctuation">,</span>
+              publicPath<span class="token punctuation">:</span> <span class="token string">&quot;dist/assets&quot;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></details> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>Now your image should be displayed without errors!! 👏👏👏</p></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/webpack-workshop/workshops/basics.html" class="prev">
+          Basics
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/webpack-workshop/assets/js/app.58b0ddb0.js" defer></script><script src="/webpack-workshop/assets/js/3.05190f84.js" defer></script>
+  </body>
+</html>
