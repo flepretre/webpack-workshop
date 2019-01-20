@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Handling &quot;code&quot; assets | Webpack Workshop</title>
+    <meta name="description" content="Webpack discovering and mastering workshops">
+    
+    
+    <link rel="preload" href="/webpack-workshop/assets/css/0.styles.98e9d09f.css" as="style"><link rel="preload" href="/webpack-workshop/assets/js/app.aa51ebed.js" as="script"><link rel="preload" href="/webpack-workshop/assets/js/7.789b6472.js" as="script"><link rel="prefetch" href="/webpack-workshop/assets/js/2.67cf5634.js"><link rel="prefetch" href="/webpack-workshop/assets/js/3.cd21fe9c.js"><link rel="prefetch" href="/webpack-workshop/assets/js/4.19b22f25.js"><link rel="prefetch" href="/webpack-workshop/assets/js/5.3190e79d.js"><link rel="prefetch" href="/webpack-workshop/assets/js/6.1ebf4d01.js"><link rel="prefetch" href="/webpack-workshop/assets/js/8.35838317.js">
+    <link rel="stylesheet" href="/webpack-workshop/assets/css/0.styles.98e9d09f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/webpack-workshop/" class="home-link router-link-active"><!----> <span class="site-name">Webpack Workshop</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/webpack-workshop/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webpack-workshop/workshops/" class="nav-link router-link-active">Workshops</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/webpack-workshop/" class="nav-link">Home</a></div><div class="nav-item"><a href="/webpack-workshop/workshops/" class="nav-link router-link-active">Workshops</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/webpack-workshop/" class="sidebar-link">Home</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Novice</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/webpack-workshop/workshops/basics.html" class="sidebar-link">Basics</a></li><li><a href="/webpack-workshop/workshops/static-assets.html" class="sidebar-link">Handling static assets</a></li><li><a href="/webpack-workshop/workshops/code-assets.html" class="active sidebar-link">Handling &quot;code&quot; assets</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/code-assets.html#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/code-assets.html#more-loaders" class="sidebar-link">More loaders !</a></li><li class="sidebar-sub-header"><a href="/webpack-workshop/workshops/code-assets.html#loader-magic" class="sidebar-link">Loader magic !</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="handling-code-assets"><a href="#handling-code-assets" aria-hidden="true" class="header-anchor">#</a> Handling &quot;code&quot; assets</h1> <blockquote><p>To start this exercise, be sure to be in <code>./packages/novice/code-assets</code> folder.
+Be sure you have <a href="/webpack-workshop/workshops/#install">installed this repository first</a></p></blockquote> <h2 id="introduction"><a href="#introduction" aria-hidden="true" class="header-anchor">#</a> Introduction</h2> <p>A web application is not only JS and HTML, you need CSS to pump it!
+In this workshop we will try to load <code>style</code> in our application.</p> <div class="language- extra-class"><pre class="language-text"><code>title.js
+      &lt;- color.js
+             &lt;- node_modules/lodash
+      &lt;- main.css
+</code></pre></div><p>If you're not familiar with <em>Loaders</em>, you should do <a href="/webpack-workshop/workshops/static-assets.html">static assets workshop</a> first.</p> <h2 id="more-loaders"><a href="#more-loaders" aria-hidden="true" class="header-anchor">#</a> More loaders !</h2> <p>We added two loaders for you <code>css-loaders</code>, <code>style-loader</code> in dependencies.
+A very tiny stylesheet has been defined too.</p> <p>Try to define the configuration for loading your style with webpack and import <code>main.css</code> file in the entry module.</p> <details><summary>Solution</summary> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> <span class="token string">&quot;./src/title.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// The source module of our dependency graph</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Configuration of what we tell webpack to generate (here, a ./dist/main.js file)</span>
+    filename<span class="token punctuation">:</span> <span class="token string">&quot;main.js&quot;</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jpg$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;file-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              outputPath<span class="token punctuation">:</span> <span class="token string">&quot;assets&quot;</span><span class="token punctuation">,</span>
+              publicPath<span class="token punctuation">:</span> <span class="token string">&quot;dist/assets&quot;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;style-loader&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;css-loader&quot;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>You should look at the generated bundle. There is no generated CSS file. The CSS should be in the JS bundle.</p></div></details> <h2 id="loader-magic"><a href="#loader-magic" aria-hidden="true" class="header-anchor">#</a> Loader magic !</h2> <p>This time we will try to add a dependency in our css file by including this code:</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(&quot;./landscape.jpg&quot;)</span> center center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>Boum ! Webpack loader can add files in the dependency graph.
+That's why your file is correctly resolved.</p></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/webpack-workshop/workshops/static-assets.html" class="prev">
+          Handling static assets
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/webpack-workshop/assets/js/app.aa51ebed.js" defer></script><script src="/webpack-workshop/assets/js/7.789b6472.js" defer></script>
+  </body>
+</html>
