@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "ad35c7d3101455554528c5af453185c5"
+    "revision": "6bbbe59ba21cf7770fbe3eb8b5325bee"
   },
   {
     "url": "assets/css/0.styles.98e9d09f.css",
@@ -84,12 +84,12 @@ self.__precacheManifest = [
     "revision": "29d3dfc4bf130cbd0541ca464262f725"
   },
   {
-    "url": "assets/js/app.78dd1065.js",
-    "revision": "b836fb53a72b672a087243d118ca8473"
+    "url": "assets/js/app.5bc60186.js",
+    "revision": "148cf571f7de4adb9e75f4829928645f"
   },
   {
     "url": "index.html",
-    "revision": "6e9431a2cf30c4fef6050c6b58808c98"
+    "revision": "8219f70eb227bf4ee35cc052665ef064"
   },
   {
     "url": "webpack.png",
@@ -97,39 +97,39 @@ self.__precacheManifest = [
   },
   {
     "url": "workshops/index.html",
-    "revision": "57163fe4974fc2a2f6ad8d8f160c41f3"
+    "revision": "16d9bc1b4afe840706dec57418762881"
   },
   {
     "url": "workshops/intermediate/dev.html",
-    "revision": "a8dd483ec2ebc512e99b5cbb8c97f3cd"
+    "revision": "fa7b96f18ac6bb4cf8ef98c6d606175d"
   },
   {
     "url": "workshops/intermediate/index.html",
-    "revision": "ddf2ec1fb7414daf74cc8ecd8fbcd24f"
+    "revision": "e12c7dbf2f37fd143dfa5ea0a76b0230"
   },
   {
     "url": "workshops/novice/basics.html",
-    "revision": "dd5e87715f13359179a4b540cf30189a"
+    "revision": "009a749a40c8c1ba160ce6d7266b5f6a"
   },
   {
     "url": "workshops/novice/code-assets.html",
-    "revision": "41ab90f00c0a297b7349d5e7db11d71f"
+    "revision": "1296bba51b55db8fb12e4bab28d62326"
   },
   {
     "url": "workshops/novice/index.html",
-    "revision": "800cdeafca05ca862410e155c06ceb2a"
+    "revision": "11deb86565ffe836bcd361e37389a223"
   },
   {
     "url": "workshops/novice/novice-koans.html",
-    "revision": "d3a1dcb4e7de572a9c6d9ba4598741cd"
+    "revision": "aea0ecf795506a924c41f3c0ee8a2375"
   },
   {
     "url": "workshops/novice/outputs.html",
-    "revision": "81ed112880e28d6cfe1541945c7da99a"
+    "revision": "b82c0c7cbce3a5fbab4d552b36a2b656"
   },
   {
     "url": "workshops/novice/static-assets.html",
-    "revision": "9fd621364d320b51162a2ae91eb6eff9"
+    "revision": "a6861142501a5195f00bbfbf6ed5ec66"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
