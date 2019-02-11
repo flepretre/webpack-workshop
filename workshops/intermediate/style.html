@@ -7,7 +7,7 @@
     <meta name="description" content="Webpack discovering and mastering workshops">
     
     
-    <link rel="preload" href="/webpack-workshop/assets/css/0.styles.446b2bb4.css" as="style"><link rel="preload" href="/webpack-workshop/assets/js/app.9ebe27d7.js" as="script"><link rel="preload" href="/webpack-workshop/assets/js/11.69f7fbe7.js" as="script"><link rel="prefetch" href="/webpack-workshop/assets/js/10.54add932.js"><link rel="prefetch" href="/webpack-workshop/assets/js/12.0e084f9e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/13.d3b7237f.js"><link rel="prefetch" href="/webpack-workshop/assets/js/14.bbd4ceab.js"><link rel="prefetch" href="/webpack-workshop/assets/js/15.1693c71f.js"><link rel="prefetch" href="/webpack-workshop/assets/js/16.55e1029e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/17.51534de7.js"><link rel="prefetch" href="/webpack-workshop/assets/js/3.38024873.js"><link rel="prefetch" href="/webpack-workshop/assets/js/4.91958876.js"><link rel="prefetch" href="/webpack-workshop/assets/js/5.a04b3ccc.js"><link rel="prefetch" href="/webpack-workshop/assets/js/6.19008f46.js"><link rel="prefetch" href="/webpack-workshop/assets/js/7.a9167aaa.js"><link rel="prefetch" href="/webpack-workshop/assets/js/8.76224c5e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/9.a12690e8.js"><link rel="prefetch" href="/webpack-workshop/assets/js/vendors~docsearch.d932dc62.js">
+    <link rel="preload" href="/webpack-workshop/assets/css/0.styles.446b2bb4.css" as="style"><link rel="preload" href="/webpack-workshop/assets/js/app.83baa13a.js" as="script"><link rel="preload" href="/webpack-workshop/assets/js/11.0c180065.js" as="script"><link rel="prefetch" href="/webpack-workshop/assets/js/10.54add932.js"><link rel="prefetch" href="/webpack-workshop/assets/js/12.0e084f9e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/13.d3b7237f.js"><link rel="prefetch" href="/webpack-workshop/assets/js/14.bbd4ceab.js"><link rel="prefetch" href="/webpack-workshop/assets/js/15.1693c71f.js"><link rel="prefetch" href="/webpack-workshop/assets/js/16.55e1029e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/17.51534de7.js"><link rel="prefetch" href="/webpack-workshop/assets/js/3.38024873.js"><link rel="prefetch" href="/webpack-workshop/assets/js/4.91958876.js"><link rel="prefetch" href="/webpack-workshop/assets/js/5.a04b3ccc.js"><link rel="prefetch" href="/webpack-workshop/assets/js/6.19008f46.js"><link rel="prefetch" href="/webpack-workshop/assets/js/7.a9167aaa.js"><link rel="prefetch" href="/webpack-workshop/assets/js/8.76224c5e.js"><link rel="prefetch" href="/webpack-workshop/assets/js/9.a12690e8.js"><link rel="prefetch" href="/webpack-workshop/assets/js/vendors~docsearch.d932dc62.js">
     <link rel="stylesheet" href="/webpack-workshop/assets/css/0.styles.446b2bb4.css">
   </head>
   <body>
@@ -112,7 +112,65 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre></div></details> <h2 id="use-a-css-post-processor"><a href="#use-a-css-post-processor" aria-hidden="true" class="header-anchor">#</a> Use a CSS post processor</h2> <p>🚧</p></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Slashgear/webpack-workshop/edit/master/docs/workshops/intermediate/style.md" target="_blank" rel="noopener noreferrer">Help us improve this page!</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/8/2019, 1:12:08 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></details> <h2 id="use-a-css-post-processor"><a href="#use-a-css-post-processor" aria-hidden="true" class="header-anchor">#</a> Use a CSS post processor</h2> <p>If you want to target many browsers with your CSS, you will need a post processor. Most commonly used is <code>PostCSS</code>.
+Try to change the configuration to use postCSS loader in your app to generate a cross browser compatible CSS.</p> <p><a href="https://github.com/postcss/postcss-loader" target="_blank" rel="noopener noreferrer">PostCSS Loader<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> is already installed. 😉
+You will need to configure only the <a href="https://www.npmjs.com/package/autoprefixer" target="_blank" rel="noopener noreferrer">autoprefixer plugin<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p> <details><summary>Solution</summary> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;html-webpack-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> MiniCssExtractPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;mini-css-extract-plugin&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> autoprefixer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;autoprefixer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token punctuation">:</span> <span class="token string">&quot;./src/main.js&quot;</span><span class="token punctuation">,</span> <span class="token comment">// The source module of our dependency graph</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Configuration of what we tell webpack to generate (here, a ./dist/main.js file)</span>
+    filename<span class="token punctuation">:</span> <span class="token string">&quot;main.bundle.js&quot;</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.jpg$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;file-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              outputPath<span class="token punctuation">:</span> <span class="token string">&quot;assets&quot;</span><span class="token punctuation">,</span>
+              publicPath<span class="token punctuation">:</span> <span class="token string">&quot;dist/assets&quot;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.sass$/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> loader<span class="token punctuation">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;css-loader&quot;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            loader<span class="token punctuation">:</span> <span class="token string">&quot;postcss-loader&quot;</span><span class="token punctuation">,</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token function">autoprefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                  browsers<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;IE &gt;= 10&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;last 2 versions&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;chrome &gt;= 28&quot;</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;sass-loader&quot;</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      filename<span class="token punctuation">:</span> <span class="token string">&quot;[name].css&quot;</span><span class="token punctuation">,</span>
+      chunkFilename<span class="token punctuation">:</span> <span class="token string">&quot;[id].css&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      template<span class="token punctuation">:</span> <span class="token string">&quot;./src/index.html&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></details></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Slashgear/webpack-workshop/edit/master/docs/workshops/intermediate/style.md" target="_blank" rel="noopener noreferrer">Help us improve this page!</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/11/2019, 12:10:35 PM</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/webpack-workshop/workshops/intermediate/babel.html" class="prev">
           Use Babel
@@ -121,6 +179,6 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/webpack-workshop/assets/js/app.9ebe27d7.js" defer></script><script src="/webpack-workshop/assets/js/11.69f7fbe7.js" defer></script>
+    <script src="/webpack-workshop/assets/js/app.83baa13a.js" defer></script><script src="/webpack-workshop/assets/js/11.0c180065.js" defer></script>
   </body>
 </html>
